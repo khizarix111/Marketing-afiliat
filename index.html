@@ -1,309 +1,377 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TechZone Futurist | Marketing afiliat</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TECH VISION | Marketing Afiliat</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      min-height: 100vh;
-      color: #ffffff;
-      background:
-        radial-gradient(circle at top left, rgba(0, 255, 255, 0.25), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.35), transparent 35%),
-        linear-gradient(135deg, #020617, #0f172a, #111827);
-      overflow-x: hidden;
-    }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #020617;
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-      background-size: 50px 50px;
-      pointer-events: none;
-      mask-image: linear-gradient(to bottom, black, transparent);
-    }
+/* FUNDAL ANIMAT */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,255,255,0.35), transparent 25%),
+    radial-gradient(circle at 80% 10%, rgba(255,0,255,0.30), transparent 25%),
+    radial-gradient(circle at 50% 90%, rgba(0,100,255,0.35), transparent 30%),
+    linear-gradient(135deg, #020617, #0f172a, #111827);
+  z-index: -3;
+  animation: pulseBg 7s infinite alternate;
+}
 
-    header {
-      text-align: center;
-      padding: 90px 20px 60px;
-      position: relative;
-    }
+@keyframes pulseBg {
+  from { filter: brightness(0.9); }
+  to { filter: brightness(1.35); }
+}
 
-    .badge {
-      display: inline-block;
-      padding: 10px 18px;
-      margin-bottom: 25px;
-      border: 1px solid rgba(34, 211, 238, 0.6);
-      border-radius: 999px;
-      color: #67e8f9;
-      background: rgba(8, 47, 73, 0.45);
-      box-shadow: 0 0 25px rgba(34, 211, 238, 0.25);
-      font-size: 14px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
+/* GRID FUTURIST */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,255,255,0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,0.12) 1px, transparent 1px);
+  background-size: 55px 55px;
+  z-index: -2;
+  opacity: 0.28;
+  animation: moveGrid 12s linear infinite;
+}
 
-    h1 {
-      font-size: clamp(42px, 7vw, 78px);
-      line-height: 1.05;
-      margin-bottom: 22px;
-      background: linear-gradient(90deg, #67e8f9, #ffffff, #c084fc);
-      -webkit-background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 40px rgba(103, 232, 249, 0.25);
-    }
+@keyframes moveGrid {
+  from { background-position: 0 0; }
+  to { background-position: 110px 110px; }
+}
 
-    header p {
-      max-width: 780px;
-      margin: auto;
-      color: #cbd5e1;
-      font-size: 18px;
-      line-height: 1.7;
-    }
+/* LINII NEON */
+.neon-line {
+  position: fixed;
+  width: 300px;
+  height: 2px;
+  background: cyan;
+  box-shadow: 0 0 20px cyan, 0 0 40px cyan;
+  opacity: 0.7;
+  z-index: -1;
+  animation: fly 8s linear infinite;
+}
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 35px 22px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 28px;
-    }
+.line1 { top: 20%; left: -300px; animation-delay: 0s; }
+.line2 { top: 55%; left: -300px; animation-delay: 2s; background: #ff00ff; box-shadow: 0 0 20px #ff00ff; }
+.line3 { top: 80%; left: -300px; animation-delay: 4s; }
 
-    .card {
-      position: relative;
-      padding: 32px;
-      border-radius: 28px;
-      background: rgba(15, 23, 42, 0.72);
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      box-shadow:
-        0 25px 60px rgba(0, 0, 0, 0.45),
-        inset 0 0 25px rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(18px);
-      overflow: hidden;
-      transition: 0.35s ease;
-    }
+@keyframes fly {
+  from { transform: translateX(0); }
+  to { transform: translateX(170vw); }
+}
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      background: linear-gradient(135deg, rgba(34,211,238,0.45), transparent, rgba(192,132,252,0.45));
-      opacity: 0;
-      transition: 0.35s ease;
-      z-index: -1;
-    }
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 95px 20px 65px;
+}
 
-    .card:hover {
-      transform: translateY(-12px) scale(1.02);
-      border-color: rgba(103, 232, 249, 0.65);
-      box-shadow:
-        0 35px 80px rgba(0, 0, 0, 0.55),
-        0 0 35px rgba(34, 211, 238, 0.25);
-    }
+.badge {
+  display: inline-block;
+  padding: 11px 22px;
+  border-radius: 999px;
+  border: 1px solid cyan;
+  color: cyan;
+  background: rgba(0,255,255,0.08);
+  box-shadow: 0 0 25px rgba(0,255,255,0.45);
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  font-size: 13px;
+  text-transform: uppercase;
+}
 
-    .card:hover::before {
-      opacity: 1;
-    }
+.hero h1 {
+  font-size: clamp(48px, 9vw, 105px);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow:
+    0 0 10px cyan,
+    0 0 25px cyan,
+    0 0 50px #7c3aed;
+  animation: glowTitle 2.5s infinite alternate;
+}
 
-    .icon {
-      width: 58px;
-      height: 58px;
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 22px;
-      background: linear-gradient(135deg, #0891b2, #7c3aed);
-      box-shadow: 0 0 30px rgba(34, 211, 238, 0.35);
-      font-size: 28px;
-    }
+@keyframes glowTitle {
+  from {
+    text-shadow: 0 0 10px cyan, 0 0 25px cyan;
+  }
+  to {
+    text-shadow: 0 0 20px #00ffff, 0 0 55px #7c3aed, 0 0 90px #ff00ff;
+  }
+}
 
-    .product-tag {
-      color: #67e8f9;
-      text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 1.4px;
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
+.hero p {
+  max-width: 850px;
+  margin: 28px auto 0;
+  color: #dbeafe;
+  font-size: 20px;
+  line-height: 1.8;
+}
 
-    .card h2 {
-      font-size: 27px;
-      margin-bottom: 16px;
-      color: #f8fafc;
-    }
+/* CARDURI */
+.container {
+  max-width: 1350px;
+  margin: auto;
+  padding: 30px 35px 90px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+}
 
-    .card p {
-      color: #cbd5e1;
-      line-height: 1.7;
-      font-size: 15.5px;
-      margin-bottom: 24px;
-    }
+.card {
+  position: relative;
+  padding: 36px;
+  min-height: 520px;
+  border-radius: 30px;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(0,255,255,0.35);
+  box-shadow:
+    0 0 25px rgba(0,255,255,0.18),
+    inset 0 0 30px rgba(255,255,255,0.04);
+  overflow: hidden;
+  transition: 0.4s ease;
+}
 
-    .features {
-      list-style: none;
-      margin-bottom: 28px;
-    }
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(120deg, transparent, rgba(0,255,255,0.35), transparent);
+  transform: translateX(-100%);
+  transition: 0.6s;
+}
 
-    .features li {
-      color: #dbeafe;
-      margin-bottom: 9px;
-      font-size: 14px;
-    }
+.card:hover::before {
+  transform: translateX(100%);
+}
 
-    .features li::before {
-      content: "◆ ";
-      color: #22d3ee;
-    }
+.card:hover {
+  transform: translateY(-16px) scale(1.03);
+  box-shadow:
+    0 0 35px rgba(0,255,255,0.55),
+    0 0 70px rgba(124,58,237,0.45);
+}
 
-    .button {
-      display: inline-block;
-      width: 100%;
-      text-align: center;
-      text-decoration: none;
-      padding: 15px 20px;
-      border-radius: 16px;
-      color: #020617;
-      font-weight: 800;
-      background: linear-gradient(90deg, #22d3ee, #a78bfa, #f0abfc);
-      box-shadow: 0 0 28px rgba(34, 211, 238, 0.35);
-      transition: 0.3s ease;
-    }
+.icon {
+  font-size: 62px;
+  margin-bottom: 22px;
+  filter: drop-shadow(0 0 18px cyan);
+}
 
-    .button:hover {
-      transform: scale(1.04);
-      box-shadow: 0 0 42px rgba(192, 132, 252, 0.55);
-    }
+.tag {
+  display: inline-block;
+  padding: 9px 16px;
+  background: rgba(0,255,255,0.12);
+  color: #67e8f9;
+  border: 1px solid rgba(0,255,255,0.45);
+  border-radius: 999px;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
 
-    .about {
-      max-width: 1000px;
-      margin: 55px auto 30px;
-      padding: 35px 25px;
-      border-radius: 28px;
-      text-align: center;
-      background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(103, 232, 249, 0.3);
-      box-shadow: 0 0 45px rgba(14, 165, 233, 0.12);
-      backdrop-filter: blur(18px);
-    }
+.card h2 {
+  font-size: 34px;
+  margin-bottom: 18px;
+}
 
-    .about h2 {
-      font-size: 32px;
-      margin-bottom: 18px;
-      color: #67e8f9;
-    }
+.card p {
+  color: #dbeafe;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
 
-    .about p {
-      color: #cbd5e1;
-      line-height: 1.8;
-      font-size: 16px;
-    }
+.features {
+  list-style: none;
+  margin-bottom: 32px;
+}
 
-    footer {
-      text-align: center;
-      padding: 35px 20px;
-      color: #94a3b8;
-      font-size: 14px;
-    }
-  </style>
+.features li {
+  margin-bottom: 12px;
+  color: #e0f2fe;
+}
+
+.features li::before {
+  content: "▸ ";
+  color: cyan;
+  font-weight: bold;
+}
+
+.button {
+  position: absolute;
+  left: 36px;
+  right: 36px;
+  bottom: 36px;
+  text-align: center;
+  text-decoration: none;
+  color: #020617;
+  background: linear-gradient(90deg, cyan, #a78bfa, #f0abfc);
+  padding: 17px;
+  border-radius: 18px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  box-shadow:
+    0 0 25px rgba(0,255,255,0.55),
+    0 0 45px rgba(168,85,247,0.35);
+  transition: 0.3s;
+}
+
+.button:hover {
+  transform: scale(1.06);
+  box-shadow:
+    0 0 35px cyan,
+    0 0 75px #a855f7;
+}
+
+/* DESPRE */
+.about {
+  max-width: 1100px;
+  margin: 0 auto 75px;
+  padding: 45px 30px;
+  text-align: center;
+  border-radius: 32px;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(0,255,255,0.35);
+  box-shadow: 0 0 45px rgba(0,255,255,0.18);
+}
+
+.about h2 {
+  font-size: 42px;
+  margin-bottom: 22px;
+  color: cyan;
+  text-shadow: 0 0 20px cyan;
+}
+
+.about p {
+  color: #dbeafe;
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+footer {
+  text-align: center;
+  color: #94a3b8;
+  padding: 35px 20px;
+}
+
+@media(max-width: 700px) {
+  .container {
+    padding: 20px;
+  }
+
+  .card {
+    min-height: 560px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="badge">Proiect educațional de marketing afiliat</div>
-    <h1>TechZone Futurist</h1>
+<div class="neon-line line1"></div>
+<div class="neon-line line2"></div>
+<div class="neon-line line3"></div>
+
+<section class="hero">
+  <div class="badge">Marketing afiliat prin Profitshare</div>
+  <h1>TECH VISION</h1>
+  <p>
+    O pagină futuristă de prezentare a produselor tech premium.
+    Produsele sunt promovate prin linkuri de afiliere generate în Profitshare.
+  </p>
+</section>
+
+<main class="container">
+
+  <section class="card">
+    <div class="icon">🖱️</div>
+    <div class="tag">Apple Ecosystem</div>
+    <h2>Apple Magic Mouse</h2>
     <p>
-      O selecție modernă de produse tech recomandate pentru productivitate,
-      studiu, birou și divertisment. Produsele sunt prezentate prin linkuri
-      de afiliere generate în platforma Profitshare.
+      Mouse premium cu design minimalist, suprafață Multi-Touch și experiență fluidă
+      pentru utilizatorii care folosesc dispozitive Apple.
     </p>
-  </header>
-
-  <main class="container">
-
-    <section class="card">
-      <div class="icon">🖱️</div>
-      <div class="product-tag">Accesoriu premium</div>
-      <h2>Apple Magic Mouse</h2>
-      <p>
-        Un mouse elegant, minimalist și intuitiv, potrivit pentru utilizatorii
-        care preferă un ecosistem Apple modern și o experiență fluidă de lucru.
-      </p>
-      <ul class="features">
-        <li>Suprafață Multi-Touch</li>
-        <li>Design alb, premium</li>
-        <li>Potrivit pentru MacBook și iMac</li>
-      </ul>
-      <a class="button" href="https://l.profitshare.ro/l/15781911" target="_blank">
-        Vezi produsul
-      </a>
-    </section>
-
-    <section class="card">
-      <div class="icon">💻</div>
-      <div class="product-tag">Laptop performant</div>
-      <h2>Apple MacBook Air M2</h2>
-      <p>
-        Laptop subțire, rapid și eficient, ideal pentru studiu, proiecte,
-        activități office, multimedia și lucru mobil în condiții moderne.
-      </p>
-      <ul class="features">
-        <li>Procesor Apple M2</li>
-        <li>16 GB RAM și SSD 256 GB</li>
-        <li>Autonomie ridicată</li>
-      </ul>
-      <a class="button" href="https://l.profitshare.ro/l/15781909" target="_blank">
-        Vezi produsul
-      </a>
-    </section>
-
-    <section class="card">
-      <div class="icon">🎧</div>
-      <div class="product-tag">Audio wireless</div>
-      <h2>Căști JBL Tune 520BT</h2>
-      <p>
-        Căști wireless moderne, potrivite pentru muzică, apeluri, cursuri online
-        și activități zilnice. Oferă sunet clar și conectivitate stabilă.
-      </p>
-      <ul class="features">
-        <li>Bluetooth 5.3</li>
-        <li>Sunet JBL Pure Bass</li>
-        <li>Conexiune multi-point</li>
-      </ul>
-      <a class="button" href="https://l.profitshare.ro/l/15781908" target="_blank">
-        Vezi produsul
-      </a>
-    </section>
-
-  </main>
-
-  <section class="about">
-    <h2>Despre acest website</h2>
-    <p>
-      Website-ul a fost realizat în scop educațional pentru demonstrarea unui
-      proiect de marketing afiliat. Linkurile integrate direcționează vizitatorii
-      către produsele promovate, iar achizițiile realizate prin aceste linkuri
-      pot genera comisioane de afiliere.
-    </p>
+    <ul class="features">
+      <li>Design modern și elegant</li>
+      <li>Suprafață tactilă Multi-Touch</li>
+      <li>Ideal pentru MacBook și iMac</li>
+    </ul>
+    <a class="button" href="https://l.profitshare.ro/l/15781911" target="_blank">
+      VEZI PRODUSUL
+    </a>
   </section>
 
-  <footer>
-    © 2026 TechZone Futurist | Website educațional realizat pentru marketing afiliat
-  </footer>
+  <section class="card">
+    <div class="icon">💻</div>
+    <div class="tag">Laptop Premium</div>
+    <h2>Apple MacBook Air M2</h2>
+    <p>
+      Laptop performant, subțire și eficient, recomandat pentru studiu, proiecte,
+      activități office și utilizare zilnică.
+    </p>
+    <ul class="features">
+      <li>Procesor Apple M2</li>
+      <li>16GB RAM și SSD 256GB</li>
+      <li>Autonomie ridicată</li>
+    </ul>
+    <a class="button" href="https://l.profitshare.ro/l/15781909" target="_blank">
+      VEZI PRODUSUL
+    </a>
+  </section>
+
+  <section class="card">
+    <div class="icon">🎧</div>
+    <div class="tag">Audio Wireless</div>
+    <h2>Căști JBL Tune 520BT</h2>
+    <p>
+      Căști wireless moderne cu Bluetooth 5.3, sunet JBL Pure Bass și autonomie bună,
+      potrivite pentru muzică, apeluri și activități online.
+    </p>
+    <ul class="features">
+      <li>Bluetooth 5.3</li>
+      <li>Sunet JBL Pure Bass</li>
+      <li>Conexiune Multi-Point</li>
+    </ul>
+    <a class="button" href="https://l.profitshare.ro/l/15781908" target="_blank">
+      VEZI PRODUSUL
+    </a>
+  </section>
+
+</main>
+
+<section class="about">
+  <h2>Despre proiect</h2>
+  <p>
+    Acest website a fost realizat în scop educațional pentru demonstrarea
+    unui proiect de marketing afiliat. Linkurile integrate direcționează
+    utilizatorii către produsele promovate și pot genera comisioane de afiliere.
+  </p>
+</section>
+
+<footer>
+  © 2026 TECH VISION | Proiect educațional de marketing afiliat
+</footer>
 
 </body>
 </html>
